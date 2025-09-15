@@ -9,10 +9,15 @@ interface PropertyCardProps {
     id: string;
     title: string;
     price: string;
+    priceType?: string; // For boarding houses: "per bedspace/month"
     location: string;
     type: string;
     bedrooms?: number;
     bathrooms?: number;
+    bedspaces?: number; // For boarding houses
+    availableBedspaces?: number; // For boarding houses
+    distanceFromUni?: string; // For boarding houses
+    amenities?: string[]; // For boarding houses
     area: string;
     image: string;
     verified: boolean;
@@ -67,7 +72,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <div className="bg-white/95 rounded-lg px-3 py-1">
             <span className="text-lg font-bold text-primary">{property.price}</span>
             <span className="text-sm text-gray-600 ml-1">
-              {property.type === 'rent' ? '/month' : ''}
+              {property.priceType || (property.type === 'rent' ? '/month' : '')}
             </span>
           </div>
         </div>
@@ -98,6 +103,18 @@ export function PropertyCard({ property }: PropertyCardProps) {
               <div className="flex items-center space-x-1">
                 <Bath className="w-4 h-4" />
                 <span>{property.bathrooms}</span>
+              </div>
+            )}
+            {property.bedspaces && (
+              <div className="flex items-center space-x-1">
+                <Bed className="w-4 h-4" />
+                <span>{property.bedspaces}</span>
+              </div>
+            )}
+            {property.availableBedspaces && (
+              <div className="flex items-center space-x-1">
+                <Bed className="w-4 h-4" />
+                <span>{property.availableBedspaces}</span>
               </div>
             )}
             <div className="flex items-center space-x-1">

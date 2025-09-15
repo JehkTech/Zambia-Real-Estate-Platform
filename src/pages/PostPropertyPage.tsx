@@ -67,6 +67,7 @@ export function PostPropertyPage({ onNavigate }: PostPropertyPageProps) {
                     { id: 'house', label: 'House', desc: 'Independent house' },
                     { id: 'townhouse', label: 'Townhouse', desc: 'Row house' },
                     { id: 'villa', label: 'Villa', desc: 'Luxury house' },
+                    { id: 'boarding', label: 'Boarding House', desc: 'Student accommodation' },
                     { id: 'plot', label: 'Plot/Land', desc: 'Empty land' },
                     { id: 'office', label: 'Office', desc: 'Commercial office' },
                     { id: 'shop', label: 'Shop/Retail', desc: 'Retail space' },
@@ -181,7 +182,136 @@ export function PostPropertyPage({ onNavigate }: PostPropertyPageProps) {
               <CardTitle>Property Details</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              {propertyType !== 'plot' && (
+              {propertyType === 'boarding' ? (
+                // Boarding House Specific Fields
+                <div>
+                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 mb-2">Student Boarding House Details</h4>
+                    <p className="text-blue-800 text-sm">
+                      Provide details specific to student accommodation near universities.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div>
+                      <Label htmlFor="total-bedspaces">Total Bedspaces *</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {[2, 4, 6, 8, 10, 12, 15, 20].map((num) => (
+                            <SelectItem key={num} value={num.toString()}>{num} bedspaces</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="available-bedspaces">Available Bedspaces *</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                            <SelectItem key={num} value={num.toString()}>{num} available</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="bedspaces-per-room">Bedspaces per Room</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {[1, 2, 3, 4].map((num) => (
+                            <SelectItem key={num} value={num.toString()}>{num} per room</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="gender-preference">Gender Preference</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="mixed">Co-ed (Mixed)</SelectItem>
+                          <SelectItem value="female">Female Only</SelectItem>
+                          <SelectItem value="male">Male Only</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="nearest-university">Nearest University *</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select University" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="unza">University of Zambia (UNZA)</SelectItem>
+                          <SelectItem value="cbu">Copperbelt University (CBU)</SelectItem>
+                          <SelectItem value="mulungushi">Mulungushi University</SelectItem>
+                          <SelectItem value="cavendish">Cavendish University</SelectItem>
+                          <SelectItem value="levy">Levy Mwanawasa Campus</SelectItem>
+                          <SelectItem value="zambia-open">Zambia Open University</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="distance-to-uni">Distance to University (km)</Label>
+                      <Input id="distance-to-uni" type="number" step="0.1" placeholder="e.g. 0.5" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label className="text-base font-medium mb-4 block">Student Amenities (Select all that apply)</Label>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      {[
+                        'Free WiFi', 'Study Room/Library', 'Common Room', 'Kitchen Access',
+                        'Laundry Facilities', 'Meal Plans Available', '24/7 Security', 'CCTV Surveillance',
+                        'Parking Available', 'Printing Services', 'Recreation Area', 'Quiet Study Hours',
+                        'Visitor Policy', 'Cleaning Service', 'Hot Water 24/7', 'Backup Generator'
+                      ].map((amenity) => (
+                        <div key={amenity} className="flex items-center space-x-2">
+                          <Checkbox id={amenity} />
+                          <Label htmlFor={amenity} className="text-sm">{amenity}</Label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="academic-year">Academic Year Availability</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Academic Year" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="2024-2025">2024/2025 Academic Year</SelectItem>
+                        <SelectItem value="2025-2026">2025/2026 Academic Year</SelectItem>
+                        <SelectItem value="year-round">Year Round</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="room-area">Area per Bedspace (sqm)</Label>
+                    <Input id="room-area" type="number" placeholder="e.g. 12" />
+                  </div>
+                </div>
+              ) : propertyType !== 'plot' && (
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                   <div>
                     <Label htmlFor="bedrooms">Bedrooms</Label>
@@ -241,79 +371,89 @@ export function PostPropertyPage({ onNavigate }: PostPropertyPageProps) {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <Label htmlFor="built-area">Built-up Area (sqm) *</Label>
-                  <Input id="built-area" type="number" placeholder="e.g. 120" />
-                </div>
+              {/* Common fields for all property types except plot */}
+              {propertyType !== 'plot' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="built-area">
+                      {propertyType === 'boarding' ? 'Total Built Area (sqm) *' : 'Built-up Area (sqm) *'}
+                    </Label>
+                    <Input id="built-area" type="number" placeholder="e.g. 120" />
+                  </div>
 
-                <div>
-                  <Label htmlFor="plot-area">Plot Area (sqm)</Label>
-                  <Input id="plot-area" type="number" placeholder="e.g. 400" />
-                </div>
+                  <div>
+                    <Label htmlFor="plot-area">Plot Area (sqm)</Label>
+                    <Input id="plot-area" type="number" placeholder="e.g. 400" />
+                  </div>
 
-                <div>
-                  <Label htmlFor="age">Property Age</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select age" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="new">New Construction</SelectItem>
-                      <SelectItem value="1-5">1-5 years</SelectItem>
-                      <SelectItem value="6-10">6-10 years</SelectItem>
-                      <SelectItem value="11-20">11-20 years</SelectItem>
-                      <SelectItem value="20+">20+ years</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                  <div>
+                    <Label htmlFor="age">Property Age</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select age" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="new">New Construction</SelectItem>
+                        <SelectItem value="1-5">1-5 years</SelectItem>
+                        <SelectItem value="6-10">6-10 years</SelectItem>
+                        <SelectItem value="11-20">11-20 years</SelectItem>
+                        <SelectItem value="20+">20+ years</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
 
-                <div>
-                  <Label htmlFor="tenure">Land Tenure</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select tenure" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="freehold">Freehold</SelectItem>
-                      <SelectItem value="leasehold">Leasehold</SelectItem>
-                      <SelectItem value="customary">Customary</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div>
+                    <Label htmlFor="tenure">Land Tenure</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select tenure" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="freehold">Freehold</SelectItem>
+                        <SelectItem value="leasehold">Leasehold</SelectItem>
+                        <SelectItem value="customary">Customary</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div>
-                <Label className="text-base font-medium mb-4 block">Property Features</Label>
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    'Air Conditioning', 'Swimming Pool', 'Garden', 'Balcony',
-                    'Terrace', 'Servant Quarters', 'Generator', 'Borehole',
-                    'Solar Panels', 'CCTV', 'Electric Fence', 'Security Guard',
-                    'Furnished', 'Semi-Furnished', 'Fireplace', 'Study Room'
-                  ].map((feature) => (
-                    <div key={feature} className="flex items-center space-x-2">
-                      <Checkbox id={feature} />
-                      <Label htmlFor={feature} className="text-sm">{feature}</Label>
+              {/* Regular property features - shown for non-boarding properties */}
+              {propertyType !== 'boarding' && (
+                <div>
+                  <div>
+                    <Label className="text-base font-medium mb-4 block">Property Features</Label>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      {[
+                        'Air Conditioning', 'Swimming Pool', 'Garden', 'Balcony',
+                        'Terrace', 'Servant Quarters', 'Generator', 'Borehole',
+                        'Solar Panels', 'CCTV', 'Electric Fence', 'Security Guard',
+                        'Furnished', 'Semi-Furnished', 'Fireplace', 'Study Room'
+                      ].map((feature) => (
+                        <div key={feature} className="flex items-center space-x-2">
+                          <Checkbox id={feature} />
+                          <Label htmlFor={feature} className="text-sm">{feature}</Label>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              <div>
-                <Label className="text-base font-medium mb-4 block">Utilities Available</Label>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  {[
-                    'Electricity (ZESCO)', 'Water (Council)', 'Borehole Water', 'Internet Ready',
-                    'Landline Phone', 'Sewerage', 'Garbage Collection', 'Street Lighting'
-                  ].map((utility) => (
-                    <div key={utility} className="flex items-center space-x-2">
-                      <Checkbox id={utility} />
-                      <Label htmlFor={utility} className="text-sm">{utility}</Label>
+                  <div>
+                    <Label className="text-base font-medium mb-4 block">Utilities Available</Label>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                      {[
+                        'Electricity (ZESCO)', 'Water (Council)', 'Borehole Water', 'Internet Ready',
+                        'Landline Phone', 'Sewerage', 'Garbage Collection', 'Street Lighting'
+                      ].map((utility) => (
+                        <div key={utility} className="flex items-center space-x-2">
+                          <Checkbox id={utility} />
+                          <Label htmlFor={utility} className="text-sm">{utility}</Label>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </CardContent>
           </Card>
         );
@@ -368,40 +508,216 @@ export function PostPropertyPage({ onNavigate }: PostPropertyPageProps) {
                 </div>
               </div>
 
-              {listingType === 'rent' && (
-                <div>
-                  <Label className="text-base font-medium mb-4 block">Rental Terms</Label>
-                  <div className="grid grid-cols-2 gap-4">
+              {propertyType === 'boarding' && listingType === 'rent' ? (
+                // Boarding House Specific Pricing
+                <>
+                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 mb-2">Student Boarding Pricing</h4>
+                    <p className="text-blue-800 text-sm">
+                      Set pricing per bedspace for your student accommodation.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="lease-period">Minimum Lease Period</Label>
+                      <Label htmlFor="price-per-bedspace">Price per Bedspace (Kwacha/month) *</Label>
+                      <Input id="price-per-bedspace" type="number" placeholder="e.g. 350" />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="deposit-per-bedspace">Deposit per Bedspace (Kwacha)</Label>
+                      <Input id="deposit-per-bedspace" type="number" placeholder="e.g. 700" />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="group-discount">Group Booking Discount (%)</Label>
                       <Select>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select period" />
+                          <SelectValue placeholder="Select discount" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="6-months">6 Months</SelectItem>
-                          <SelectItem value="1-year">1 Year</SelectItem>
-                          <SelectItem value="2-years">2 Years</SelectItem>
-                          <SelectItem value="flexible">Flexible</SelectItem>
+                          <SelectItem value="0">No Discount</SelectItem>
+                          <SelectItem value="5">5%</SelectItem>
+                          <SelectItem value="10">10%</SelectItem>
+                          <SelectItem value="15">15%</SelectItem>
+                          <SelectItem value="20">20%</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div>
-                      <Label htmlFor="payment-terms">Payment Terms</Label>
+                      <Label htmlFor="early-bird-discount">Early Bird Discount (%)</Label>
                       <Select>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select terms" />
+                          <SelectValue placeholder="Select discount" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="monthly">Monthly</SelectItem>
-                          <SelectItem value="quarterly">Quarterly</SelectItem>
-                          <SelectItem value="annually">Annually</SelectItem>
+                          <SelectItem value="0">No Discount</SelectItem>
+                          <SelectItem value="5">5%</SelectItem>
+                          <SelectItem value="10">10%</SelectItem>
+                          <SelectItem value="15">15%</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
-                </div>
+
+                  <div>
+                    <Label className="text-base font-medium mb-4 block">Student Payment Options</Label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="payment-frequency">Payment Frequency</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select frequency" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="monthly">Monthly</SelectItem>
+                            <SelectItem value="semester">Per Semester</SelectItem>
+                            <SelectItem value="term">Per Term</SelectItem>
+                            <SelectItem value="academic-year">Academic Year</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="lease-term">Lease Term</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select term" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="semester">Semester Based</SelectItem>
+                            <SelectItem value="academic-year">Academic Year</SelectItem>
+                            <SelectItem value="flexible">Flexible</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label className="text-base font-medium mb-4 block">Additional Costs (Optional)</Label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="utilities-cost">Utilities (per bedspace/month)</Label>
+                        <Input id="utilities-cost" type="number" placeholder="e.g. 50" />
+                      </div>
+                      <div>
+                        <Label htmlFor="cleaning-fee">Cleaning Fee (one-time)</Label>
+                        <Input id="cleaning-fee" type="number" placeholder="e.g. 100" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="currency">Preferred Currency</Label>
+                    <Select defaultValue="zmw">
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="zmw">Zambian Kwacha (ZMW)</SelectItem>
+                        <SelectItem value="usd">US Dollar (USD)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="negotiable">Price Negotiation</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select option" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="fixed">Fixed Price</SelectItem>
+                        <SelectItem value="negotiable">Negotiable</SelectItem>
+                        <SelectItem value="slightly">Slightly Negotiable</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </>
+              ) : (
+                // Regular Property Pricing
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="price">
+                        {listingType === 'rent' ? 'Monthly Rent (Kwacha) *' : 'Sale Price (Kwacha) *'}
+                      </Label>
+                      <Input id="price" type="number" placeholder="e.g. 3500" />
+                    </div>
+
+                    {listingType === 'rent' && (
+                      <div>
+                        <Label htmlFor="deposit">Security Deposit (Kwacha)</Label>
+                        <Input id="deposit" type="number" placeholder="e.g. 7000" />
+                      </div>
+                    )}
+
+                    <div>
+                      <Label htmlFor="currency">Preferred Currency</Label>
+                      <Select defaultValue="zmw">
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="zmw">Zambian Kwacha (ZMW)</SelectItem>
+                          <SelectItem value="usd">US Dollar (USD)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="negotiable">Price Negotiation</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select option" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="fixed">Fixed Price</SelectItem>
+                          <SelectItem value="negotiable">Negotiable</SelectItem>
+                          <SelectItem value="slightly">Slightly Negotiable</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  {listingType === 'rent' && (
+                    <div>
+                      <Label className="text-base font-medium mb-4 block">Rental Terms</Label>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="lease-period">Minimum Lease Period</Label>
+                          <Select>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select period" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="6-months">6 Months</SelectItem>
+                              <SelectItem value="1-year">1 Year</SelectItem>
+                              <SelectItem value="2-years">2 Years</SelectItem>
+                              <SelectItem value="flexible">Flexible</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div>
+                          <Label htmlFor="payment-terms">Payment Terms</Label>
+                          <Select>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select terms" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="monthly">Monthly</SelectItem>
+                              <SelectItem value="quarterly">Quarterly</SelectItem>
+                              <SelectItem value="annually">Annually</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
 
               {/* Listing Fees */}

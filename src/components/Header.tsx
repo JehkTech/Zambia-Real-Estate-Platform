@@ -22,6 +22,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   const navigationItems = [
     { id: 'buy' as PageType, label: 'Buy' },
     { id: 'rent' as PageType, label: 'Rent' },
+    { id: 'boarding' as PageType, label: 'Student Boarding' },
     { id: 'sell' as PageType, label: 'Sell' },
     { id: 'commercial' as PageType, label: 'Commercial' },
   ];

@@ -6,10 +6,11 @@ import { BuyPage } from './pages/BuyPage';
 import { RentPage } from './pages/RentPage';
 import { SellPage } from './pages/SellPage';
 import { CommercialPage } from './pages/CommercialPage';
+import { BoardingPage } from './pages/BoardingPage';
 import { PostPropertyPage } from './pages/PostPropertyPage';
 import { AccountPage } from './pages/AccountPage';
 
-export type PageType = 'home' | 'buy' | 'rent' | 'sell' | 'commercial' | 'post-property' | 'account';
+export type PageType = 'home' | 'buy' | 'rent' | 'sell' | 'commercial' | 'boarding' | 'post-property' | 'account';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -26,6 +27,8 @@ export default function App() {
         return <SellPage onNavigate={setCurrentPage} />;
       case 'commercial':
         return <CommercialPage onNavigate={setCurrentPage} />;
+      case 'boarding':
+        return <BoardingPage onNavigate={setCurrentPage} />;
       case 'post-property':
         return <PostPropertyPage onNavigate={setCurrentPage} />;
       case 'account':
