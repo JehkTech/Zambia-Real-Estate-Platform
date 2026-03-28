@@ -24,7 +24,7 @@ const rentProperties = [
     bedrooms: 3,
     bathrooms: 2,
     area: '120 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1663756915301-2ba688e078cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBpbnRlcmlvciUyMGxpdmluZyUyMHJvb218ZW58MXx8fHwxNzczNzEwMzI5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: true,
     owner: { name: 'John Mwanza', phone: '+260977123456', verified: true }
@@ -38,7 +38,7 @@ const rentProperties = [
     bedrooms: 2,
     bathrooms: 2,
     area: '90 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1597497522150-2f50bffea452?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBraXRjaGVuJTIwYXBhcnRtZW50fGVufDF8fHx8MTc3Mzc0MDU2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: false,
     owner: { name: 'Mary Banda', phone: '+260966789012', verified: true }
@@ -52,7 +52,7 @@ const rentProperties = [
     bedrooms: 4,
     bathrooms: 3,
     area: '250 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3VzZSUyMGV4dGVyaW9yJTIwZ2FyZGVufGVufDF8fHx8MTc3Mzc0MDU1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: true,
     owner: { name: 'David Ng\'oma', phone: '+260955345678', verified: true }
@@ -66,7 +66,7 @@ const rentProperties = [
     bedrooms: 1,
     bathrooms: 1,
     area: '60 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1772340163991-40eacaa11740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0b3duaG91c2UlMjBzdWJ1cmJhbiUyMG5laWdoYm9yaG9vZHxlbnwxfHx8fDE3NzM3NDA1NjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: false,
     featured: false,
     owner: { name: 'Sarah Phiri', phone: '+260944567890', verified: false }
@@ -80,7 +80,7 @@ const rentProperties = [
     bedrooms: 3,
     bathrooms: 2,
     area: '180 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZnJpY2FuJTIwaG9tZSUyMGx1eHVyeXxlbnwxfHx8fDE3NzM3NDA1NTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: false,
     owner: { name: 'Peter Katongo', phone: '+260933123789', verified: true }
@@ -94,7 +94,7 @@ const rentProperties = [
     bedrooms: 3,
     bathrooms: 2,
     area: '150 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1626075246403-544a14566c3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBob21lJTIwYmFja3lhcmQlMjBwYXRpb3xlbnwxfHx8fDE3NzM3NDA1NjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: false,
     owner: { name: 'Grace Mulenga', phone: '+260922456123', verified: true }

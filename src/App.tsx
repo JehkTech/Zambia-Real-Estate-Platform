@@ -15,34 +15,39 @@ export type PageType = 'home' | 'buy' | 'rent' | 'sell' | 'commercial' | 'boardi
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
 
+  const handleNavigate = (page: PageType) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={handleNavigate} />;
       case 'buy':
-        return <BuyPage onNavigate={setCurrentPage} />;
+        return <BuyPage onNavigate={handleNavigate} />;
       case 'rent':
-        return <RentPage onNavigate={setCurrentPage} />;
+        return <RentPage onNavigate={handleNavigate} />;
       case 'sell':
-        return <SellPage onNavigate={setCurrentPage} />;
+        return <SellPage onNavigate={handleNavigate} />;
       case 'commercial':
-        return <CommercialPage onNavigate={setCurrentPage} />;
+        return <CommercialPage onNavigate={handleNavigate} />;
       case 'boarding':
-        return <BoardingPage onNavigate={setCurrentPage} />;
+        return <BoardingPage onNavigate={handleNavigate} />;
       case 'post-property':
-        return <PostPropertyPage onNavigate={setCurrentPage} />;
+        return <PostPropertyPage onNavigate={handleNavigate} />;
       case 'account':
-        return <AccountPage onNavigate={setCurrentPage} />;
+        return <AccountPage onNavigate={handleNavigate} />;
       default:
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={handleNavigate} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage={currentPage} onNavigate={setCurrentPage} />
+      <Header currentPage={currentPage} onNavigate={handleNavigate} />
       {renderPage()}
-      <Footer onNavigate={setCurrentPage} />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

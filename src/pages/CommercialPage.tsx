@@ -24,7 +24,7 @@ const commercialProperties = [
     bedrooms: 0,
     bathrooms: 2,
     area: '200 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1763046472163-32c74523903e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tZXJjaWFsJTIwb2ZmaWNlJTIwYnVpbGRpbmclMjBtb2Rlcm58ZW58MXx8fHwxNzczNjg4NTE0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: true,
     owner: { name: 'Business Properties Ltd', phone: '+260977123456', verified: true }
@@ -38,7 +38,7 @@ const commercialProperties = [
     bedrooms: 0,
     bathrooms: 1,
     area: '150 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1642345335843-5d216041d9d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXRhaWwlMjBzaG9wJTIwc3RvcmVmcm9udHxlbnwxfHx8fDE3NzM3NDA1NjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: false,
     owner: { name: 'Manda Properties', phone: '+260966789012', verified: true }
@@ -52,7 +52,7 @@ const commercialProperties = [
     bedrooms: 0,
     bathrooms: 3,
     area: '2,000 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1674252260339-6a9986775993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXJlaG91c2UlMjBpbmR1c3RyaWFsJTIwc3BhY2V8ZW58MXx8fHwxNzczNjY4NjUwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: true,
     owner: { name: 'Industrial Estates', phone: '+260955345678', verified: true }
@@ -66,7 +66,7 @@ const commercialProperties = [
     bedrooms: 0,
     bathrooms: 8,
     area: '800 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1770386751962-d3bb928aeb7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNpZGVudGlhbCUyMGJ1aWxkaW5nJTIwYXBhcnRtZW50JTIwY29tcGxleHxlbnwxfHx8fDE3NzM3NDA1NjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: false,
     owner: { name: 'Commercial Investments', phone: '+260944567890', verified: true }
@@ -80,7 +80,7 @@ const commercialProperties = [
     bedrooms: 0,
     bathrooms: 2,
     area: '180 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1663756915301-2ba688e078cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBpbnRlcmlvciUyMGxpdmluZyUyMHJvb218ZW58MXx8fHwxNzczNzEwMzI5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: false,
     owner: { name: 'Mall Management', phone: '+260933123789', verified: true }
@@ -94,7 +94,7 @@ const commercialProperties = [
     bedrooms: 0,
     bathrooms: 4,
     area: '3,500 sqm',
-    image: '/api/placeholder/400/300',
+    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZnJpY2FuJTIwaG9tZSUyMGx1eHVyeXxlbnwxfHx8fDE3NzM3NDA1NTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     verified: true,
     featured: true,
     owner: { name: 'Industrial Parks Zambia', phone: '+260922456123', verified: true }
